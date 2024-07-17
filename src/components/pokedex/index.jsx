@@ -57,26 +57,26 @@ export const Pokedex = () => {
             />
           </li>
         ))}
-         <li>
-          <Button>
-            Carregar todos 
-          </Button>
-        </li>
-        <li>
-          <Button
-            onClick={() => {
-              setOffset(offset + 12);
-            }}
-          >
-            Mais pokemons
-          </Button>
-        </li>
-        <li>
-          <a href="#root">
-            <Button>Voltar para o topo</Button>
-          </a>
-        </li>       
       </Grid>
+      <Nav>
+        <Button
+          onClick={() => {
+            setOffset(offset + 12);
+          }}
+        >
+          Mais pokemons
+        </Button>
+        <Button
+          onClick={() => {
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth",
+            });
+          }}
+        >
+          Voltar para o topo
+        </Button>
+      </Nav>
       <Pikachu>
         <Img src={pikachu} />
       </Pikachu>
@@ -135,4 +135,11 @@ const Img = styled.img`
   height: 100%;
   object-fit: cover;
   object-position: center top;
+`;
+
+const Nav = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  width: 70rem;
+  padding: 1.5rem;
 `;
