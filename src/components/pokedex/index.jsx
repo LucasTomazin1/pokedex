@@ -28,7 +28,8 @@ export const Pokedex = () => {
             return {
               name: data.name,
               types: data.types,
-              image: data.sprites.front_default,
+              image: data.sprites.other.showdown.front_default,
+              backImage: data.sprites.other.showdown.back_default,
             };
           })
         );

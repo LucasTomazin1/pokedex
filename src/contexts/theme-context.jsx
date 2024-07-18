@@ -4,9 +4,9 @@ export const themes = {
   light: {
     bodyBackground: "#C0C0C0",
     navbarBackground:
-      "linear-gradient(to top, rgba(0, 0, 0, 0.1) 0%, rgba(255, 255, 255, 0.6) 100%)",
+      "linear-gradient(to top, rgba(0, 0, 15, 0.4) 0%, rgba(255, 255, 255, 0.6) 100%)",
     footerBackground:
-      "linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, .06) 100%)",
+      "linear-gradient(to bottom, rgba(0, 0, 20, 0.1) 0%, rgba(255, 255, 255, .06) 100%)",
     textColor: "#000000",
     buttonHover: "#ffffff",
     themeTag: "Dark",
