@@ -10,8 +10,6 @@ export const Abilities = ({ ability }) => {
       try {
         const descriptionData = await getHabilityDescription(ability.url);
 
-        console.log(descriptionData);
-
         const effect = descriptionData.effect_entries.find(
           (entry) => entry.language.name === "en"
         );

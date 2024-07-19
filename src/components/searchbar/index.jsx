@@ -15,18 +15,20 @@ export const Searchbar = () => {
 
   const onClickHandler = async () => {
     const lowercaseSearch = search.toLowerCase();
-    setInitSearch(true);
-    onSearchHandler(lowercaseSearch);
-    console.log(pokemonData);
+    if(lowercaseSearch !== "") {        
+        setInitSearch(true);
+        onSearchHandler(lowercaseSearch);
+    } else{
+        return
+    }
   };
 
-  const onSearchHandler = async (pokemonData) => {
-    const result = await getPokemon(pokemonData);
-    setPokemonData(result);
+  const onSearchHandler = async (pokemonData) => {    
+        const result = await getPokemon(pokemonData);
+        setPokemonData(result);
   };
 
   const primaryType = pokemonData?.types?.[0]?.type?.name;
-  console.log(primaryType);
 
   return (
     <Container>
@@ -36,24 +38,22 @@ export const Searchbar = () => {
         onChange={onChangeHandler}
       />
       <Button onClick={onClickHandler}>Search</Button>
-      <Link to={`/pokemon/${search}`}>
-        <SearchBackground className={primaryType}>
-          <SearchResult
-            style={{ visibility: initSearch ? "visible" : "hidden" }}
-          >
-            {!pokemonData ? (
-              "This is not a pokemon"
-            ) : (
-              <>
-                <ImgContainer>
-                  <Img src={pokemonData.sprites.other.showdown.front_default} />
-                </ImgContainer>
-                <span>Go to Pokémon page</span>
-              </>
-            )}
-          </SearchResult>
-        </SearchBackground>
-      </Link>
+      {!pokemonData ? (
+        <p style={{ visibility: initSearch ? "visible" : "hidden" }}>
+          This is not a pokemon
+        </p>
+      ) : (
+        <Link to={`/pokemon/${search}`}>
+          <SearchBackground className={primaryType}>
+            <SearchResult>
+              <ImgContainer>
+                <Img src={pokemonData.sprites.other.showdown.front_default} />
+              </ImgContainer>
+              <span>Go to Pokémon page</span>
+            </SearchResult>
+          </SearchBackground>
+        </Link>
+      )}
     </Container>
   );
 };

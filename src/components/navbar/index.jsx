@@ -35,6 +35,5 @@ const ImgContainer = styled.div`
 
     img{
         width: 20rem;
-
         }
 `

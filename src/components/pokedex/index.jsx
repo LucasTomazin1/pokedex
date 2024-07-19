@@ -66,7 +66,7 @@ export const Pokedex = () => {
             setOffset(offset + 12);
           }}
         >
-          More pokémons
+          Load more
         </Button>
         <Button
           onClick={() => {
