@@ -1363,4 +1363,4 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     font-size: 1.1rem;
     padding: 0.6rem;
   }
-`,x2=()=>E.jsxs(ny,{children:[E.jsx(vs,{path:"/",element:E.jsx(Qw,{})}),E.jsx(vs,{path:"/pokemon/:name",element:E.jsx(i2,{})})]});function w2(){return E.jsxs(fv,{children:[E.jsx(_y,{}),E.jsxs(uy,{children:[E.jsx(Cy,{}),E.jsx(x2,{}),E.jsx(Rw,{})]})]})}ml.createRoot(document.getElementById("root")).render(E.jsx(w2,{}));
+`,x2=()=>E.jsxs(ny,{children:[E.jsx(vs,{path:"/",element:E.jsx(Qw,{})}),E.jsx(vs,{path:"/pokemon/:name",element:E.jsx(i2,{})})]});function w2(){return E.jsxs(fv,{children:[E.jsx(_y,{}),E.jsxs(uy,{basename:"/pokedex",children:[E.jsx(Cy,{}),E.jsx(x2,{}),E.jsx(Rw,{})]})]})}ml.createRoot(document.getElementById("root")).render(E.jsx(w2,{}));
