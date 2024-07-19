@@ -94,7 +94,7 @@ export const Pokedex = () => {
 
 const Main = styled.main`
   display: flex;
-  min-height: 100%;
+  min-height: 94%;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
@@ -140,7 +140,7 @@ const LinkCard = styled(Link)`
 
 const Pikachu = styled.div`
   width: 24rem;
-  heigth: 16.3rem;
+  height: 16.3rem;
   position: absolute;
   bottom: -2.6rem;
 
@@ -187,16 +187,23 @@ const Bulbasaur = styled.div`
   }
 
   @media (max-width: 425px) {
-    bottom: 10rem;
-    width: 12rem;
+    width: 10.5rem;
     height: 10.47rem;
-    left: 3.5rem;
+    bottom: 5rem;
+    left: 2rem;
   }
+
+   @media (max-width: 320px){
+    width: 8.5rem;
+    height: 10.47rem;
+    bottom: 3rem;
+    left: 1rem;
+   }
 `;
 
 const Meow = styled.div`
   width: 21rem;
-  heigth: 30rem;
+  height: 30rem;;
   position: absolute;
   bottom: -3rem;
   right: 5rem;
@@ -218,9 +225,19 @@ const Meow = styled.div`
   }
 
   @media (max-width: 425px) {
-    width: 12rem;
-    height: 21rem;
+    width: 10rem;
+    height: 18rem;
     bottom: 10rem;
+    bottom: 0;
+    right: 2rem;
+  }
+
+  @media (max-width: 320px) {
+    width: 10rem;
+    height: 18rem;
+    bottom: 10rem;
+    bottom: -1rem;
+    right: 0.5rem;
   }
 `;
 

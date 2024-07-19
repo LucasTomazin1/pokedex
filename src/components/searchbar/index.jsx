@@ -85,12 +85,14 @@ const Container = styled.div`
     flex-direction: column;
     margin-top:
     gap: 1rem;
-    order: 3;
+    padding-right: 10rem;
     }
     
     @media (max-width: 425px) {
-    gap: 0.5rem;
-  }
+        gap: 0.5rem;
+        order: 3;
+        padding-right: 0;
+        }
 
   @media (max-width: 320px) {
     gap: 0.3rem;
