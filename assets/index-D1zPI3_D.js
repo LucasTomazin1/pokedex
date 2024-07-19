@@ -171,7 +171,7 @@ Error generating stack: `+o.message+`
   object-fit: cover;
   max-width: 100%;
   max-height: 100%;
-`,ky=()=>{const{theme:e,setTheme:t}=_.useContext(An);return E.jsx("div",{children:E.jsx(Go,{onClick:()=>t(e===yo.light?yo.dark:yo.light),children:e.themeTag})})},Ey="/assets/pokemon-Dyw_SVDw.png",Cy=()=>{const{theme:e}=_.useContext(An);return E.jsx(E.Fragment,{children:E.jsxs(Py,{style:{background:e.navbarBackground},children:[E.jsx("img",{src:Ey,alt:"Logo do Pokemon"}),E.jsx(hy,{}),E.jsx(ky,{})]})})},Py=R.header`
+`,ky=()=>{const{theme:e,setTheme:t}=_.useContext(An);return E.jsx("div",{children:E.jsx(Go,{onClick:()=>t(e===yo.light?yo.dark:yo.light),children:e.themeTag})})},Ey="/pokedex/assets/pokemon-Dyw_SVDw.png",Cy=()=>{const{theme:e}=_.useContext(An);return E.jsx(E.Fragment,{children:E.jsxs(Py,{style:{background:e.navbarBackground},children:[E.jsx("img",{src:Ey,alt:"Logo do Pokemon"}),E.jsx(hy,{}),E.jsx(ky,{})]})})},Py=R.header`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -945,7 +945,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     font-size: 1.4rem;
     font-weight: 600;
   }
-`,Vw="/assets/pikachu-removebg-6mw8jrV_.png",Hw="/assets/bulba-removebg-BPzk5ebT.png",Yw="/assets/meow_2-removebg-BMFjQ4d2.png",Qw=()=>{const{theme:e}=_.useContext(An),[t,n]=_.useState({pokemonList:[]}),[r,i]=_.useState(0);return _.useEffect(()=>{(async()=>{try{const a=await py(r),l=await Promise.all(a.results.map(async s=>{const u=await Uu(s.name);return{name:u.name,types:u.types,image:u.sprites.other.showdown.front_default}}));n(s=>({pokemonList:[...s.pokemonList,...l]}))}catch(a){console.error("Error fetching pokemons:",a)}})()},[r]),E.jsxs(Gw,{style:{background:e.bodyBackground},children:[E.jsx(Kw,{children:t.pokemonList.map((o,a)=>E.jsx("li",{style:{boxShadow:e.cardShadow,borderRadius:"8px"},children:E.jsx(Xw,{to:`/pokemon/${o.name}`,children:E.jsx(Fw,{name:o.name,types:o.types,image:o.image})})},a))}),E.jsxs(e2,{children:[E.jsx(Go,{onClick:()=>{i(r+12)},children:"Load more"}),E.jsx(Go,{onClick:()=>{window.scrollTo({top:0,behavior:"smooth"})},children:"Back to Top"})]}),E.jsx(Zw,{children:E.jsx(pl,{src:Vw})}),E.jsx(Jw,{children:E.jsx(pl,{src:Hw})}),E.jsx(qw,{children:E.jsx(pl,{src:Yw})})]})},Gw=R.main`
+`,Vw="/pokedex/assets/pikachu-removebg-6mw8jrV_.png",Hw="/pokedex/assets/bulba-removebg-BPzk5ebT.png",Yw="/pokedex/assets/meow_2-removebg-BMFjQ4d2.png",Qw=()=>{const{theme:e}=_.useContext(An),[t,n]=_.useState({pokemonList:[]}),[r,i]=_.useState(0);return _.useEffect(()=>{(async()=>{try{const a=await py(r),l=await Promise.all(a.results.map(async s=>{const u=await Uu(s.name);return{name:u.name,types:u.types,image:u.sprites.other.showdown.front_default}}));n(s=>({pokemonList:[...s.pokemonList,...l]}))}catch(a){console.error("Error fetching pokemons:",a)}})()},[r]),E.jsxs(Gw,{style:{background:e.bodyBackground},children:[E.jsx(Kw,{children:t.pokemonList.map((o,a)=>E.jsx("li",{style:{boxShadow:e.cardShadow,borderRadius:"8px"},children:E.jsx(Xw,{to:`/pokemon/${o.name}`,children:E.jsx(Fw,{name:o.name,types:o.types,image:o.image})})},a))}),E.jsxs(e2,{children:[E.jsx(Go,{onClick:()=>{i(r+12)},children:"Load more"}),E.jsx(Go,{onClick:()=>{window.scrollTo({top:0,behavior:"smooth"})},children:"Back to Top"})]}),E.jsx(Zw,{children:E.jsx(pl,{src:Vw})}),E.jsx(Jw,{children:E.jsx(pl,{src:Hw})}),E.jsx(qw,{children:E.jsx(pl,{src:Yw})})]})},Gw=R.main`
   display: flex;
   min-height: 100%;
   flex-direction: column;
