@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
 
 export const themes = {
   light: {
@@ -12,7 +13,7 @@ export const themes = {
       "linear-gradient(to bottom, rgba(0, 0, 20, 0.1) 0%, rgba(255, 255, 255, .06) 100%)",
     textColor: "#000000",
     buttonHover: "#ffffff",
-    themeTag: "Dark",
+    themeTag: faMoon,
     cardShadow: "2px 2px 2px 2px  rgba(0, 0, 0, 0.5)",
   },
   dark: {
@@ -26,7 +27,7 @@ export const themes = {
       "linear-gradient(to top, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.4) 100%)",
     textColor: "#ffffff",
     buttonHover: "#091112",
-    themeTag: "Light",
+    themeTag: faSun,
     cardShadow: "none",
   },
 };

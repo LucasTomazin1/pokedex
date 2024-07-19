@@ -151,7 +151,12 @@ const DataContainer = styled.div`
   }
 `;
 
-const Left = styled.div``;
+const Left = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+`;
 
 const Right = styled.div`
   display: flex;

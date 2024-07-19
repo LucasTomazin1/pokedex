@@ -4,6 +4,7 @@ import { Button } from "../button";
 import { Link } from "react-router-dom";
 import { getPokemon } from "../../service";
 
+
 export const Searchbar = () => {
   const [search, setSearch] = useState("");
   const [pokemonData, setPokemonData] = useState();
@@ -23,7 +24,7 @@ export const Searchbar = () => {
     }
   };
 
-  const onEnterPress = (e) => {
+  const onEnterPress = () => {
     const lowercaseSearch = search.toLowerCase();
     if (event.key === "Enter") {
       if (lowercaseSearch !== "") {
@@ -53,10 +54,10 @@ export const Searchbar = () => {
       <Button onClick={onClickHandler}>Search</Button>
       {!pokemonData ? (
         <p style={{ visibility: initSearch ? "visible" : "hidden" }}>
-          This is not a pokemon
+          This is not a pokemon!
         </p>
       ) : (
-        <Link to={`/pokemon/${search}`}>
+        <Link to={`/pokemon/${pokemonData.name}`}>
           <SearchBackground className={primaryType}>
             <SearchResult>
               <ImgContainer>
@@ -84,6 +85,7 @@ const Container = styled.div`
     flex-direction: column;
     margin-top:
     gap: 1rem;
+    order: 3;
     }
     
     @media (max-width: 425px) {
@@ -98,13 +100,13 @@ const Container = styled.div`
 const Input = styled.input`
   height: 3.5rem;
   width: 20rem;
-  border-radius: 0.8rem;
+  border-radius: 1rem;
   background-color: #3d7dca;
   color: #f6eb61;
   font-size: 1.8rem;
+  padding-left: 0.6rem;
   &::placeholder {
     color: #f6eb61;
-    padding-left: 0.6rem;
   }
 
   @media (max-width: 1024px) {
