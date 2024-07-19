@@ -21,7 +21,7 @@ export const Pokedex = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const pokemons = await getPokemons(offset);       
+        const pokemons = await getPokemons(offset);
         const pokemonData = await Promise.all(
           pokemons.results.map(async (pokemon) => {
             const data = await getPokemon(pokemon.name);
@@ -50,7 +50,7 @@ export const Pokedex = () => {
             key={index}
             style={{ boxShadow: theme.cardShadow, borderRadius: "8px" }}
           >
-            <LinkCard to={`/pokemon/${pokemon.name}` }>
+            <LinkCard to={`/pokemon/${pokemon.name}`}>
               <PokemonCard
                 name={pokemon.name}
                 types={pokemon.types}
@@ -108,6 +108,23 @@ const Grid = styled.ul`
   gap: 1.5rem;
   grid-template-columns: repeat(3, 1fr);
   padding: 3rem;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
+
+  @media (max-width: 425px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  @media (max-width: 320px) {
+    padding: 0.5rem;
+  }
 `;
 
 const LinkCard = styled(Link)`
@@ -118,13 +135,30 @@ const LinkCard = styled(Link)`
     color: inherit;
     transform: scale(1.2);
   }
-`
+`;
 
 const Pikachu = styled.div`
   width: 24rem;
   heigth: 16.3rem;
   position: absolute;
   bottom: -3rem;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  @media (max-width: 1024px) {
+    width: 20rem;
+    height: 13.3rem;
+  }
+
+  @media (max-width: 768px) {
+    width: 16rem;
+    height: 10.3rem;
+    bottom: -1.5rem;
+  }
 `;
 
 const Bulbasaur = styled.div`
@@ -133,6 +167,29 @@ const Bulbasaur = styled.div`
   position: absolute;
   bottom: 1rem;
   left: 5rem;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  @media (max-width: 1024px) {
+    width: 18rem;
+    height: 16.47rem;
+  }
+
+  @media (max-width: 768px) {
+    width: 15rem;
+    height: 13.47rem;
+  }
+
+  @media (max-width: 425px) {
+    bottom: 10rem;
+    width: 12rem;
+    height: 10.47rem;
+    left: 3.5rem;
+  }
 `;
 
 const Meow = styled.div`
@@ -141,6 +198,28 @@ const Meow = styled.div`
   position: absolute;
   bottom: -3rem;
   right: 5rem;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  @media (max-width: 1024px) {
+    width: 18rem;
+    height: 27rem;
+  }
+
+  @media (max-width: 768px) {
+    width: 15rem;
+    height: 24rem;
+  }
+
+  @media (max-width: 425px) {
+    width: 12rem;
+    height: 21rem;
+    bottom: 10rem;
+  }
 `;
 
 const Img = styled.img`
@@ -155,4 +234,23 @@ const Nav = styled.div`
   justify-content: space-evenly;
   width: 70rem;
   padding: 1.5rem;
+  z-index: 1;
+
+  @media (max-width: 1024px) {
+    width: 60rem;
+  }
+
+  @media (max-width: 768px) {
+    width: 50rem;
+  }
+
+  @media (max-width: 425px) {
+    width: 40rem;
+    align-items: center;
+    }
+    
+    @media (max-width: 320px) {
+
+    width: 30rem;
+  }
 `;

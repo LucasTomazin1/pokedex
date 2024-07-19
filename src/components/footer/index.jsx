@@ -49,6 +49,33 @@ const Container = styled.footer`
     font-size: 2rem;
     font-weight: 700;
   }
+    @media (max-width: 1024px) {
+    height: 8rem;
+    span {
+      font-size: 1.8rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    height: 7rem;
+    span {
+      font-size: 1.6rem;
+    }
+  }
+
+  @media (max-width: 425px) {
+    height: 6rem;
+    span {
+      font-size: 1.4rem;
+    }
+  }
+
+  @media (max-width: 320px) {
+    height: 5rem;
+    span {
+      font-size: 1.2rem;
+    }
+  }
 `;
 
 const SocialLinks = styled.ul`
@@ -63,5 +90,31 @@ const SocialLinks = styled.ul`
     color: inherit;
     font-size: 2rem;
     transition: transform 0.2s ease-in-out;
+  }
+
+    @media (max-width: 1024px) {
+    gap: 4rem;
+    a {
+      font-size: 1.8rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    gap: 3rem;
+    a {
+      font-size: 1.6rem;
+    }
+  }
+
+  @media (max-width: 425px) {
+    a {
+      font-size: 1.4rem;
+    }
+  }
+
+  @media (max-width: 320px) {
+    a {
+      font-size: 1.2rem;
+    }
   }
 `;

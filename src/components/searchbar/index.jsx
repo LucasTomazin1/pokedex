@@ -15,17 +15,17 @@ export const Searchbar = () => {
 
   const onClickHandler = async () => {
     const lowercaseSearch = search.toLowerCase();
-    if(lowercaseSearch !== "") {        
-        setInitSearch(true);
-        onSearchHandler(lowercaseSearch);
-    } else{
-        return
+    if (lowercaseSearch !== "") {
+      setInitSearch(true);
+      onSearchHandler(lowercaseSearch);
+    } else {
+      return;
     }
   };
 
-  const onSearchHandler = async (pokemonData) => {    
-        const result = await getPokemon(pokemonData);
-        setPokemonData(result);
+  const onSearchHandler = async (pokemonData) => {
+    const result = await getPokemon(pokemonData);
+    setPokemonData(result);
   };
 
   const primaryType = pokemonData?.types?.[0]?.type?.name;
@@ -62,6 +62,24 @@ const Container = styled.div`
   display: flex;
   gap: 2rem;
   align-items: center;
+
+   @media (max-width: 1024px) {
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    margin-top:
+    gap: 1rem;
+    }
+    
+    @media (max-width: 425px) {
+    gap: 0.5rem;
+  }
+
+  @media (max-width: 320px) {
+    gap: 0.3rem;
+  }
 `;
 
 const Input = styled.input`
@@ -74,6 +92,26 @@ const Input = styled.input`
   &::placeholder {
     color: #f6eb61;
     padding-left: 0.6rem;
+  }
+
+  @media (max-width: 1024px) {
+    width: 18rem;
+    font-size: 1.6rem;
+  }
+
+  @media (max-width: 768px) {
+    width: 16rem;
+    font-size: 1.4rem;
+  }
+
+  @media (max-width: 425px) {
+    width: 14rem;
+    font-size: 1.2rem;
+  }
+
+  @media (max-width: 320px) {
+    width: 12rem;
+    font-size: 1rem;
   }
 `;
 
@@ -107,11 +145,16 @@ const SearchBackground = styled.div`
 `;
 
 const ImgContainer = styled.div`
-  width: 5rem;
+  display: flex;
+  justify-content: center;
+  width: 4rem;
   height: auto;
 `;
+
 const Img = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
+  max-width: 100%;
+  max-height: 100%;
 `;
