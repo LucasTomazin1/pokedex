@@ -8,6 +8,7 @@ export const GlobalStyle = createGlobalStyle`
         text-decoration: none;
         list-style: none;
         font-size: 10px;
+        box-sizing: border-box;
     }
 
     body {
@@ -16,7 +17,7 @@ export const GlobalStyle = createGlobalStyle`
         min-width: 320px;
         min-height: 100vh;
         background-color: #121212;
-        width: 100vw;
+        width: 100%;
     }      
 
     .normal { background-color: #A8A77A; }

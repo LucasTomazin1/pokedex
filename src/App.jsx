@@ -10,7 +10,7 @@ function App() {
   return (
     <ThemeProvider>
       <GlobalStyle />
-      <Router>
+      <Router  basename="/pokedex">
         <Navbar />
         <AppRoutes />
         <Footer />

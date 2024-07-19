@@ -23,6 +23,18 @@ export const Searchbar = () => {
     }
   };
 
+  const onEnterPress = (e) => {
+    const lowercaseSearch = search.toLowerCase();
+    if (event.key === "Enter") {
+      if (lowercaseSearch !== "") {
+        setInitSearch(true);
+        onSearchHandler(lowercaseSearch);
+      } else {
+        return;
+      }
+    }
+  };
+
   const onSearchHandler = async (pokemonData) => {
     const result = await getPokemon(pokemonData);
     setPokemonData(result);
@@ -36,6 +48,7 @@ export const Searchbar = () => {
         type="text"
         placeholder="Search pokémon"
         onChange={onChangeHandler}
+        onKeyPress={onEnterPress}
       />
       <Button onClick={onClickHandler}>Search</Button>
       {!pokemonData ? (
@@ -83,7 +96,7 @@ const Container = styled.div`
 `;
 
 const Input = styled.input`
-  height: 3rem;
+  height: 3.5rem;
   width: 20rem;
   border-radius: 0.8rem;
   background-color: #3d7dca;
@@ -102,11 +115,13 @@ const Input = styled.input`
   @media (max-width: 768px) {
     width: 16rem;
     font-size: 1.4rem;
+    margin-top: 2rem;
   }
 
   @media (max-width: 425px) {
     width: 14rem;
     font-size: 1.2rem;
+    margin-top: 1rem;
   }
 
   @media (max-width: 320px) {

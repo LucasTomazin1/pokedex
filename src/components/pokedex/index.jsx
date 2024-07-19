@@ -94,7 +94,7 @@ export const Pokedex = () => {
 
 const Main = styled.main`
   display: flex;
-  height: 100%;
+  min-height: 100%;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
@@ -108,13 +108,14 @@ const Grid = styled.ul`
   gap: 1.5rem;
   grid-template-columns: repeat(3, 1fr);
   padding: 3rem;
+  z-index: 1;
 
   @media (max-width: 1024px) {
-    grid-template-columns: repeat(2, 1fr);
     padding: 2rem;
   }
 
   @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
     padding: 1rem;
   }
 
@@ -141,7 +142,7 @@ const Pikachu = styled.div`
   width: 24rem;
   heigth: 16.3rem;
   position: absolute;
-  bottom: -3rem;
+  bottom: -2.6rem;
 
   img {
     width: 100%;
@@ -152,6 +153,7 @@ const Pikachu = styled.div`
   @media (max-width: 1024px) {
     width: 20rem;
     height: 13.3rem;
+    bottom: -2rem;
   }
 
   @media (max-width: 768px) {
@@ -247,10 +249,9 @@ const Nav = styled.div`
   @media (max-width: 425px) {
     width: 40rem;
     align-items: center;
-    }
-    
-    @media (max-width: 320px) {
+  }
 
+  @media (max-width: 320px) {
     width: 30rem;
   }
 `;

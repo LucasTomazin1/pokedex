@@ -57,21 +57,18 @@ const Container = styled.footer`
   }
 
   @media (max-width: 768px) {
-    height: 7rem;
     span {
       font-size: 1.6rem;
     }
   }
 
   @media (max-width: 425px) {
-    height: 6rem;
     span {
       font-size: 1.4rem;
     }
   }
 
   @media (max-width: 320px) {
-    height: 5rem;
     span {
       font-size: 1.2rem;
     }
