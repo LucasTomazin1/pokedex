@@ -1,35 +1,48 @@
 import { useState, useEffect } from "react";
 import { getHabilityDescription } from "../../service";
+import styled from "styled-components";
 
-export const Habilities = ({ ability }) => {
+export const Abilities = ({ ability }) => {
   const [description, setDescription] = useState("");
 
   useEffect(() => {
     const fetchDescription = async () => {
       try {
         const descriptionData = await getHabilityDescription(ability.url);
-       
-        const descriptions = descriptionData.effect_entries
 
-        const portugueseDescription = descriptions.find(
-          (entry) => entry.language.name === "pt"
-        );
+        console.log(descriptionData);
 
-        const englishDescription = descriptions.find(
+        const effect = descriptionData.effect_entries.find(
           (entry) => entry.language.name === "en"
         );
 
-        setDescription(portugueseDescription ? portugueseDescription.effect : (englishDescription ? englishDescription.effect : "descrição não disponível"))
+        setDescription(effect ? effect.effect : "descrição não disponível");
       } catch (error) {
-        console.log("fetching description error: ", error);
+        setDescription("descrição não disponível");
       }
     };
     fetchDescription();
   }, [ability.url]);
   return (
-    <li>
+    <Ability>
       <h3>{ability.name}</h3>
       <p>{description}</p>
-    </li>
+    </Ability>
   );
 };
+
+const Ability = styled.li`
+  display: flex;
+  flex-direction: column;
+
+  h3 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+`;

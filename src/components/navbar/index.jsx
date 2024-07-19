@@ -1,21 +1,13 @@
 import { useContext } from "react"
 import { Searchbar } from '../searchbar';
-import { getPokemon } from "../../service";
 import { ThemeTogglerButton } from "../theme-toggler-buuton";
 import { ThemeContext } from "../../contexts/theme-context";
 import styled from "styled-components"
 import logo from "../../assets/pokemon.png"
 
 
-
 export const Navbar = () => {
     const { theme } = useContext(ThemeContext);
-
-    const onSearchHandler = async(pokemon) => {
-        const result = await getPokemon(pokemon)
-        console.log(result)
-        return await result.json        
-    }
 
     return(
         <>
@@ -23,7 +15,7 @@ export const Navbar = () => {
                 <ImgContainer >
                     <img src={logo} alt="Logo do Pokemon" />
                 </ImgContainer>
-                <Searchbar onSearch={onSearchHandler} />
+                <Searchbar />
                 <ThemeTogglerButton />
             </Container>
         </>
@@ -32,7 +24,7 @@ export const Navbar = () => {
 
 const Container = styled.header`
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     padding: 1rem;
     width: 100vw;

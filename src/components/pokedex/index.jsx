@@ -8,6 +8,7 @@ import { ThemeContext } from "../../contexts/theme-context";
 import pikachu from "../../assets/pikachu-removebg.png";
 import bulbasaur from "../../assets/bulba-removebg.png";
 import meow from "../../assets/meow_2-removebg.png";
+import { Link } from "react-router-dom";
 
 export const Pokedex = () => {
   const { theme } = useContext(ThemeContext);
@@ -20,8 +21,7 @@ export const Pokedex = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const pokemons = await getPokemons(offset);
-        console.log("pokemons: ", pokemons);
+        const pokemons = await getPokemons(offset);       
         const pokemonData = await Promise.all(
           pokemons.results.map(async (pokemon) => {
             const data = await getPokemon(pokemon.name);
@@ -29,7 +29,6 @@ export const Pokedex = () => {
               name: data.name,
               types: data.types,
               image: data.sprites.other.showdown.front_default,
-              backImage: data.sprites.other.showdown.back_default,
             };
           })
         );
@@ -44,18 +43,20 @@ export const Pokedex = () => {
   }, [offset]);
 
   return (
-    <Section style={{ background: theme.bodyBackground }}>
+    <Main style={{ background: theme.bodyBackground }}>
       <Grid>
         {pokemons.pokemonList.map((pokemon, index) => (
           <li
             key={index}
             style={{ boxShadow: theme.cardShadow, borderRadius: "8px" }}
           >
-            <PokemonCard
-              name={pokemon.name}
-              types={pokemon.types}
-              image={pokemon.image}
-            />
+            <LinkCard to={`/pokemon/${pokemon.name}` }>
+              <PokemonCard
+                name={pokemon.name}
+                types={pokemon.types}
+                image={pokemon.image}
+              />
+            </LinkCard>
           </li>
         ))}
       </Grid>
@@ -65,7 +66,7 @@ export const Pokedex = () => {
             setOffset(offset + 12);
           }}
         >
-          Mais pokemons
+          More pokémons
         </Button>
         <Button
           onClick={() => {
@@ -75,7 +76,7 @@ export const Pokedex = () => {
             });
           }}
         >
-          Voltar para o topo
+          Back to Top
         </Button>
       </Nav>
       <Pikachu>
@@ -87,11 +88,11 @@ export const Pokedex = () => {
       <Meow>
         <Img src={meow} />
       </Meow>
-    </Section>
+    </Main>
   );
 };
 
-const Section = styled.section`
+const Main = styled.main`
   display: flex;
   height: 100%;
   flex-direction: column;
@@ -99,6 +100,7 @@ const Section = styled.section`
   gap: 1rem;
   position: relative;
   overflow: hidden;
+  color: #121212;
 `;
 
 const Grid = styled.ul`
@@ -107,6 +109,16 @@ const Grid = styled.ul`
   grid-template-columns: repeat(3, 1fr);
   padding: 3rem;
 `;
+
+const LinkCard = styled(Link)`
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    color: inherit;
+    transform: scale(1.2);
+  }
+`
 
 const Pikachu = styled.div`
   width: 24rem;

@@ -1,11 +1,15 @@
 import { getPokemon } from "../service";
-import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
-import { Habilities } from "../components/habilities";
+import { Abilities } from "../components/habilities";
 import Type from "../components/type-tag";
+import { ThemeContext } from "../contexts/theme-context";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHouse } from "@fortawesome/free-solid-svg-icons";
 
 export const PokemonPage = () => {
+  const { theme } = useContext(ThemeContext);
   const { name } = useParams();
   const [pokemon, setPokemon] = useState();
 
@@ -27,64 +31,119 @@ export const PokemonPage = () => {
   }
 
   return (
-    <Container>
-      <Name>{pokemon.name}</Name>
+    <Container
+      style={{ backgroundColor: theme.bodyBackground, color: theme.color }}
+    >
+
       <DataContainer>
-        <ImgContainer>
-          <img
-            src={pokemon.sprites.other.dream_world.front_default}
-            alt={pokemon.name}
-          />
-        </ImgContainer>
+        <Left>
+          <StyledLink to="/">
+            <Home icon={faHouse} />
+          </StyledLink>
+          <ImgContainer>
+            <img
+              src={pokemon.sprites.other.dream_world.front_default}
+              alt={pokemon.name}
+            />
+          </ImgContainer>
+        </Left>
+        <Right>
+        <Name>{pokemon.name}</Name>
         <Data>
-          <div>
+          <ul>
             <li>
-              <h2>Habilidades</h2>
+              <h2>Abilities</h2>
             </li>
             {pokemon.abilities.map((abilities, index) => (
-              <Habilities key={index} ability={abilities.ability} />
+              <Abilities key={index} ability={abilities.ability} />
             ))}
-          </div>
-          <div>
-            <li>
-              <h2>Tipo(s)</h2>
-            </li>
-            <Type types={pokemon.types} />
-          </div>
+          </ul>
+          <TypeWeight>
+            <div>
+              <h2>Type</h2>
+              <Type types={pokemon.types} />
+            </div>
+            <div>
+              <h2>Weight</h2>
+              <Weight>{pokemon.weight}</Weight>
+            </div>
+          </TypeWeight>
         </Data>
+        </Right>
       </DataContainer>
       <Moves>
         <li>
-          <h2>Movimentos</h2>
+          <h2>Moves</h2>
         </li>
-        {pokemon.moves.map((moves, index) => (
-          <li key={index}>{moves.move.name}</li>
-        ))}
+        <MovesContainer>
+          {pokemon.moves.map((moves, index) => (
+            <Move
+              key={index}
+              style={{
+                backgroundColor: theme.moveCard,
+                color: theme.colorTextCard,
+              }}
+            >
+              {moves.move.name}
+            </Move>
+          ))}
+        </MovesContainer>
       </Moves>
     </Container>
   );
 };
 
 const Container = styled.main`
+  padding: 2rem;
   display: flex;
+  height: 100%;
   flex-direction: column;
   align-items: center;
-  height: 80vh;
-  color: #ffffff;
   font-size: 2rem;
   h2 {
     font-size: 3rem;
+    margin-bottom: 1.5rem;
+`;
+
+const Left = styled.div`
+
+`
+
+const Right = styled.div`
+display: flex;
+flex-direction: column;
+gap: 1rem;
+`
+
+const StyledLink = styled(Link)`
+  color: inherit;
+  text-decoration: none;
+`;
+
+const Home = styled(FontAwesomeIcon)`
+  font-size: 4rem;
+    &:hover {
+    color: inherit;
+    transform: scale(1.1);
   }
 `;
 
 const Name = styled.h1`
   font-size: 5rem;
   text-transform: uppercase;
-  padding: 3rem;
+  margin-bottom: 2rem;
+`;
+
+const DataContainer = styled.div`
+  display: flex;
+  gap: 10rem;
 `;
 
 const ImgContainer = styled.div`
   max-width: 25rem;
+  max-height: 25rem;
+  width: 25rem;
+  height: 25rem;
   height: auto;
   background: linear-gradient(
     to bottom,
@@ -97,7 +156,7 @@ const ImgContainer = styled.div`
   align-items: center;
   border-radius: 50%;
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
-  padding: 4rem;
+  padding: 8rem;
 
   img {
     width: 100%;
@@ -106,13 +165,37 @@ const ImgContainer = styled.div`
   }
 `;
 
-const DataContainer = styled.div`
+const Data = styled.div`
+  max-width: 50rem;
+  ul{
+    margin-bottom: 2rem;
+  }
+`;
+
+const TypeWeight = styled.div`
   display: flex;
   gap: 10rem;
 `;
 
-const Data = styled.ul`
-    max width: 25rem;
+const Weight = styled.div`
+  font-size: 2rem;
 `;
 
-const Moves = styled.ul``;
+const Moves = styled.ul`
+  max-width: 90rem;
+  width: 100%;
+  margin-top: 2rem;
+`;
+
+const MovesContainer = styled.div`
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+`;
+
+const Move = styled.li`
+  font-size: 1.5rem;
+  padding: 1rem;
+  border-radius: 0.8rem;
+  box-shadow: 1px 1px 1px 2px rgba(0, 0, 0, 0.2);
+`;

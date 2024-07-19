@@ -9,9 +9,7 @@ export const GlobalStyle = createGlobalStyle`
         list-style: none;
         font-size: 10px;
     }
-    a:hover {
-        color: #535bf2;
-    }
+
     body {
         display: flex;
         justify-content: center;
@@ -19,7 +17,7 @@ export const GlobalStyle = createGlobalStyle`
         min-height: 100vh;
         background-color: #121212;
         width: 100vw;
-    }
+    }      
 
     .normal { background-color: #A8A77A; }
     .fighting { background-color: #C22E28; }
@@ -32,7 +30,7 @@ export const GlobalStyle = createGlobalStyle`
     .steel { background-color: #B7B7CE; }
     .fire { background-color: #ff1010; }
     .water { background-color: #6390F0; }
-    .grass { background-color: #7AC74C; }
+    .grass {background-color: #7AC74C; }
     .electric { background-color: #F7D02C; }
     .psychic { background-color: #F95587; }
     .ice { background-color: #96D9D6; }

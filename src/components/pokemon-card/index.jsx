@@ -29,6 +29,9 @@ const Card = styled.div`
   padding: 1rem;
   gap: 1rem;
   border-radius: 0.8rem;
+     &:hover {
+        transform: scale(1.05);
+      }
 `;
 
 const Img = styled.img`
