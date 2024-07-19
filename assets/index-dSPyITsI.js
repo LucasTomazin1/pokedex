@@ -93,12 +93,14 @@ Error generating stack: `+o.message+`
     flex-direction: column;
     margin-top:
     gap: 1rem;
-    order: 3;
+    padding-right: 10rem;
     }
     
     @media (max-width: 425px) {
-    gap: 0.5rem;
-  }
+        gap: 0.5rem;
+        order: 3;
+        padding-right: 0;
+        }
 
   @media (max-width: 320px) {
     gap: 0.3rem;
@@ -734,6 +736,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   border: none;
 `,I2=R(vr)`
   font-size: 3rem;
+  transition: all 0.3s ease-in-out;
   &:hover {
     color: inherit;
     transform: scale(1.1);
@@ -968,7 +971,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   }
 `,K2="/pokedex/assets/pikachu-removebg-6mw8jrV_.png",X2="/pokedex/assets/bulba-removebg-BPzk5ebT.png",Z2="/pokedex/assets/meow_2-removebg-BMFjQ4d2.png",J2=()=>{const{theme:e}=_.useContext(Er),[t,n]=_.useState({pokemonList:[]}),[r,i]=_.useState(0);return _.useEffect(()=>{(async()=>{try{const a=await dy(r),l=await Promise.all(a.results.map(async s=>{const u=await Uu(s.name);return{name:u.name,types:u.types,image:u.sprites.other.showdown.front_default}}));n(s=>({pokemonList:[...s.pokemonList,...l]}))}catch(a){console.error("Error fetching pokemons:",a)}})()},[r]),E.jsxs(q2,{style:{background:e.bodyBackground},children:[E.jsx(ew,{children:t.pokemonList.map((o,a)=>E.jsx("li",{style:{boxShadow:e.cardShadow,borderRadius:"8px"},children:E.jsx(tw,{to:`/pokemon/${o.name}`,children:E.jsx(B2,{name:o.name,types:o.types,image:o.image})})},a))}),E.jsxs(ow,{children:[E.jsx(hs,{onClick:()=>{i(r+12)},children:"Load more"}),E.jsx(hs,{onClick:()=>{window.scrollTo({top:0,behavior:"smooth"})},children:"Back to Top"})]}),E.jsx(nw,{children:E.jsx(dl,{src:K2})}),E.jsx(rw,{children:E.jsx(dl,{src:X2})}),E.jsx(iw,{children:E.jsx(dl,{src:Z2})})]})},q2=R.main`
   display: flex;
-  min-height: 100%;
+  min-height: 94%;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
@@ -1008,7 +1011,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   }
 `,nw=R.div`
   width: 24rem;
-  heigth: 16.3rem;
+  height: 16.3rem;
   position: absolute;
   bottom: -2.6rem;
 
@@ -1053,14 +1056,21 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   }
 
   @media (max-width: 425px) {
-    bottom: 10rem;
-    width: 12rem;
+    width: 10.5rem;
     height: 10.47rem;
-    left: 3.5rem;
+    bottom: 5rem;
+    left: 2rem;
   }
+
+   @media (max-width: 320px){
+    width: 8.5rem;
+    height: 10.47rem;
+    bottom: 3rem;
+    left: 1rem;
+   }
 `,iw=R.div`
   width: 21rem;
-  heigth: 30rem;
+  height: 30rem;;
   position: absolute;
   bottom: -3rem;
   right: 5rem;
@@ -1082,9 +1092,19 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   }
 
   @media (max-width: 425px) {
-    width: 12rem;
-    height: 21rem;
+    width: 10rem;
+    height: 18rem;
     bottom: 10rem;
+    bottom: 0;
+    right: 2rem;
+  }
+
+  @media (max-width: 320px) {
+    width: 10rem;
+    height: 18rem;
+    bottom: 10rem;
+    bottom: -1rem;
+    right: 0.5rem;
   }
 `,dl=R.img`
   width: 100%;
