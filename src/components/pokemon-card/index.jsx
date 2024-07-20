@@ -29,6 +29,7 @@ const Card = styled.div`
   padding: 1rem;
   gap: 1rem;
   border-radius: 0.8rem;
+  transition: all 0.3s ease-in-out;
      &:hover {
         transform: scale(1.05);
       }

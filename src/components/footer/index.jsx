@@ -44,12 +44,12 @@ const Container = styled.footer`
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  
+
   span {
     font-size: 2rem;
     font-weight: 700;
   }
-    @media (max-width: 1024px) {
+  @media (max-width: 1024px) {
     height: 8rem;
     span {
       font-size: 1.8rem;
@@ -79,8 +79,11 @@ const SocialLinks = styled.ul`
   display: flex;
   gap: 5rem;
 
+  li {
+    transition: all 0.3s ease-in-out;
+  }
   li:hover {
-  transform: scale(1.1);
+    transform: scale(1.1);
   }
 
   a {
@@ -89,7 +92,7 @@ const SocialLinks = styled.ul`
     transition: transform 0.2s ease-in-out;
   }
 
-    @media (max-width: 1024px) {
+  @media (max-width: 1024px) {
     gap: 4rem;
     a {
       font-size: 1.8rem;
