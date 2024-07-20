@@ -839,12 +839,12 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  
+
   span {
     font-size: 2rem;
     font-weight: 700;
   }
-    @media (max-width: 1024px) {
+  @media (max-width: 1024px) {
     height: 8rem;
     span {
       font-size: 1.8rem;
@@ -872,8 +872,11 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   display: flex;
   gap: 5rem;
 
+  li {
+    transition: all 0.3s ease-in-out;
+  }
   li:hover {
-  transform: scale(1.1);
+    transform: scale(1.1);
   }
 
   a {
@@ -882,7 +885,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     transition: transform 0.2s ease-in-out;
   }
 
-    @media (max-width: 1024px) {
+  @media (max-width: 1024px) {
     gap: 4rem;
     a {
       font-size: 1.8rem;
@@ -923,6 +926,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   padding: 1rem;
   gap: 1rem;
   border-radius: 0.8rem;
+  transition: all 0.3s ease-in-out;
      &:hover {
         transform: scale(1.05);
       }
